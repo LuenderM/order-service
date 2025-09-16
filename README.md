@@ -11,3 +11,20 @@ Ele recebe pedidos de um produto externo (A), calcula o valor total dos itens, p
 - **MySQL** (persistência)
 - **Maven**
 - **Postman** (testes da API)
+
+---
+
+## 📌 Funcionalidades
+✅ Criar pedidos (POST)  
+✅ Listar pedidos (GET)  
+✅ Atualizar pedidos (PUT)  
+✅ Excluir pedidos (DELETE)  
+✅ Calcular automaticamente o `totalAmount` dos pedidos  
+
+---
+
+🧑‍💻 Autor
+
+Projeto desenvolvido por Luender Meira como estudo prático de Java + Spring Boot e arquitetura de microserviços.
+
+---
