@@ -4,9 +4,10 @@ import com.luender.order.model.Order;
 import com.luender.order.service.OrderService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -20,8 +21,8 @@ public class OrderController {
     }
 
     @GetMapping     // vai listar todos os pedidos
-    public ResponseEntity<List<Order>> getAllOrders() {
-        List<Order> orders = orderService.getAllOrders();
+    public ResponseEntity<Page<Order>> getAllOrders(Pageable pageable) {
+        Page<Order> orders = orderService.getAllOrders(pageable);
         return ResponseEntity.ok(orders); // HTTP 200
     }
 
