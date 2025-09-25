@@ -4,10 +4,11 @@ import com.luender.order.DAO.OrderDAO;
 import com.luender.order.model.Order;
 import com.luender.order.model.OrderItem;
 import org.springframework.stereotype.Service;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -19,8 +20,8 @@ public class OrderService {
         this.orderDAO = orderDAO;
     }
 
-    public List<Order> getAllOrders() {                 // buscar todos os pedidos
-        return orderDAO.findAll();
+    public Page<Order> getAllOrders(Pageable pageable) {                 // buscar todos os pedidos
+        return orderDAO.findAll(pageable);
     }
 
     public Optional<Order> getOrderById(Long id) {      // buscar por id
