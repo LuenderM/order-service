@@ -1,2 +1,12 @@
+# Compiled output from Maven
+/target/
+
+# Log files
+*.log
+
+# IDE files (IntelliJ)
+.idea/
+*.iml
+
 # Ignorar o arquivo de propriedades com dados sensíveis
 /src/main/resources/application.properties
