@@ -9,6 +9,9 @@ Ele recebe pedidos de um produto externo (A), calcula o valor total dos itens, p
 - **Java 21**
 - **Spring Boot** (Web, Data JPA)
 - **MySQL** (persistência)
+- **Spring Security + JWT**
+- **MySQL** (persistência)
+- **Flyway**
 - **Maven**
 - **Postman** (testes da API)
 
