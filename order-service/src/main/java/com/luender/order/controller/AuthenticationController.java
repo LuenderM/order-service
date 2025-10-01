@@ -1,7 +1,9 @@
 package com.luender.order.controller;
 
 import com.luender.order.DAO.UserRepository;
+import com.luender.order.infra.security.TokenService;
 import com.luender.order.model.user.AuthenticationDTO;
+import com.luender.order.model.user.LoginResponseDTO;
 import com.luender.order.model.user.RegisterDTO;
 import com.luender.order.model.user.User;
 import jakarta.validation.Valid;
@@ -25,12 +27,17 @@ public class AuthenticationController {
     @Autowired
     private UserRepository repository;
 
+    @Autowired
+    private TokenService tokenService;
+
     @PostMapping("/login")
     public ResponseEntity login(@RequestBody @Valid AuthenticationDTO data){
         var usernamePassword = new UsernamePasswordAuthenticationToken(data.login(), data.password());
         var auth = this.authenticationManager.authenticate(usernamePassword);
 
-        return ResponseEntity.ok().build();
+        var token = tokenService.generateToken((User) auth.getPrincipal());
+
+        return ResponseEntity.ok(new LoginResponseDTO(token));
     }
 
     @PostMapping("/register")
